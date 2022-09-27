@@ -1,0 +1,9 @@
+version: "3"
+services: 
+  flask-apache2:
+    build: .
+    container_name: flask-deployment
+    ports:
+      - '8080:80'
+    volumes: 
+      - ./:/var/www/html

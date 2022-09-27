@@ -15,12 +15,12 @@ class CommentForm(FlaskForm):
     comment = StringField("Type or paste the text below:", validators = [DataRequired()])
     submit = SubmitField("Submit")
 
-vocab = torch.load("vocab.pt")
+vocab = torch.load("./vocab.pt")
 vocab_size = len(vocab)
 embed_len = 50
 hidden_dim = 128
 n_layers=2
-vocab = torch.load("vocab.pt")
+#vocab = torch.load("vocab.pt")
 class RNNClassifier(nn.Module):
     def __init__(self):
         super(RNNClassifier, self).__init__()
@@ -46,8 +46,8 @@ class RNNClassifier(nn.Module):
 tokenizer = get_tokenizer('basic_english')
 model = RNNClassifier()
 model = model.to(device)
-model.load_state_dict(torch.load("model.pth", map_location = device))
-vocab = torch.load("vocab.pt")
+model.load_state_dict(torch.load("./model.pth", map_location = device))
+#vocab = torch.load("vocab.pt")
 max_words = 2000
 classes = np.array(["Toxic", "Severe Toxic", "Obscene", "Threat", "Insult", "Identity Hate"])
 @app.route('/', methods = ['GET', 'POST'])

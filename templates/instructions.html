@@ -1,22 +1,84 @@
 {% extends 'base.html' %}
 
 {% block content %}
-This web application takes a block of text as input to analyze the toxicity conveyed by it. There is no specific format in which the text is to be entered. The web app provides the following classes as output depending on the type and intensity of the meaning which is self-explanatory:
-<ul>
-  <li>"Toxic"</li>
-  <li>"Severe Toxic"</li>
-  <li> "Obscene"</li>
-  <li> "Threat"</li>
-  <li>"Insult"</li>
-  <li>"Identity Hate"</li>
-</ul>
+<div class="instruction-body">
+  <div class="description-text">
+    This web application takes a block of text as input to analyze the toxicity conveyed by it. There is no specific
+    format in which the text is to be entered. The web app provides the following classes as output depending on the
+    type
+    and intensity of the meaning which is self-explanatory:
+  </div>
+  <div class="list-box">
+    <ul>
+      <li>"Toxic"</li>
+      <li>"Severe Toxic"</li>
+      <li> "Obscene"</li>
+      <li> "Threat"</li>
+      <li>"Insult"</li>
+      <li>"Identity Hate"</li>
+    </ul>
+  </div>
+  <div class="description-text">
+    Apart from the above six classes, the app also predicts the input text as "Non-Toxic" in case it doesn't contain
+    toxicity.
 
-Apart from the above six classes, the app also predicts the input text as "Non-Toxic" in case it doesn't contain toxicity.
+    To get started, provide the text/statemet/comment that you want to check for presence of toxicity in the text box as
+    shown below.
+  </div>
+  <img src="static/textbox.png" alt="Example image" class="img-1" width="1000px">
+  <br />
+  <div class="description-text-2">
+    Click on submit to feed the input to the web app and get output.
+  </div>
+  <img src="static/home.png" alt="Example image 2" class="img-2" width="1000px">
+  <img src="static/home-sm.png" alt="Example image 2" class="img-2-sm" width="1000px">
+  <br />
+  <div class="description-text-2">
+    To get another prediction, click on home button.
+  </div>
+</div>
+<style>
+  .img-2-sm {
+    display: none;
+  }
 
-To get started, provide the text/statemet/comment that you want to check for presence of toxicity in the text box as shown below.
+  .instruction-body {
+    color: #2c2c2c;
+    font-size: 1rem;
 
-Click on submit to feed the input to the web app and get output.
+  }
 
-To get another prediction, click on home button.
+  @media only screen and (max-width:750px) {
+
+    .img-1,
+    .img-2 {
+      width: 700px
+    }
+  }
+
+  @media only screen and (max-width:450px) {
+    .img-2 {
+      display: none;
+    }
+
+    .img-2-sm {
+      width: 300px;
+      display: block;
+    }
+  }
+
+  .description-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .description-text-2 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: left;
+  }
+</style>
 
 {% endblock %}

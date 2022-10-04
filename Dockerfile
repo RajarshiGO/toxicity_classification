@@ -10,7 +10,9 @@ ADD ./app.wsgi ./
 ADD ./model.pth ./
 ADD ./vocab.pt ./
 ADD ./templates ./templates
+ADD ./static ./static
+ADD ./utils.py ./
 RUN pip3 install -r requirements.txt
 ADD ./config.conf /etc/apache2/sites-available/000-default.conf
-EXPOSE 10000
+EXPOSE 80
 CMD ["apache2ctl", "-D", "FOREGROUND"]

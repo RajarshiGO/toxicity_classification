@@ -13,4 +13,5 @@ ADD ./templates ./templates
 RUN pip3 install -r requirements.txt
 ADD ./config.conf /etc/apache2/sites-available/000-default.conf
 ADD ./ports.conf /etc/apache2/ports.conf
+EXPOSE 10000
 CMD ["apache2ctl", "-D", "FOREGROUND"]

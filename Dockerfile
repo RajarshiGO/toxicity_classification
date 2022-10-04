@@ -12,5 +12,5 @@ ADD ./vocab.pt ./
 ADD ./templates ./templates
 RUN pip3 install -r requirements.txt
 ADD ./config.conf /etc/apache2/sites-available/000-default.conf
-EXPOSE 80
+ADD ./ports.conf /etc/apache2/ports.conf
 CMD ["apache2ctl", "-D", "FOREGROUND"]
